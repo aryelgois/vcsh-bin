@@ -33,25 +33,25 @@ sudo apt-get install -y \
     apache2-utils    `: provides 12 commands, especially "ab"` \
     apt-file         `: to find where files come from` \
     colordiff wdiff  `: for the occasional need to diff outside of git ` \
-    git              `: distributed version control` \
-    html2text        `: when data is available in no better format` \
-    htop             `: much better "top" command` \
+    fdupes           `: for when I feel like cleaning up my hard drive` \
+    filezilla        `: client FTP` \
     fontforge        `: font editing` \
     gimp             `: image editing` \
+    git              `: distributed version control` \
+    gparted          `: for managing disks and partitions` \
+    gufw             `: firewall` \
+    html2text        `: when data is available in no better format` \
+    htop             `: much better "top" command` \
     inkscape         `: SVG editing` \
     jq               `: like grep but for JSON` \
     openssh-server   `: secure shell` \
-    filezilla        `: client FTP` \
-    vlc              `: media player` \
     pcregrep         `: reasonable RE syntax, and can capture groups` \
     pdftk            `: perform various useful operations on PDFs` \
     pwgen            `: random passwords` \
     terminator       `: terminal of choice` \
     tree             `: for when ls is simply not enough` \
-    fdupes           `: for when I feel like cleaning up my hard drive` \
-    gufw             `: firewall` \
-    gparted          `: for managing disks and partitions` \
     unrar            `: unpack proprietary` \
+    vlc              `: media player` \
     \
     `: fonts` \
     ttf-freefont ttf-mscorefonts-installer \

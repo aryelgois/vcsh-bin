@@ -8,6 +8,11 @@ if [[ $(id -u) -eq 0 ]]; then
 fi
 
 umask 022
+
+# PPAs
+sudo add-apt-repository ppa:fontforge/fontforge -y
+
+# Update
 sudo apt-get update
 
 # Avoid "perl" locale errors and the "locale" error:
@@ -25,14 +30,28 @@ sudo apt-get install -y \
     git              `: distributed version control` \
     html2text        `: when data is available in no better format` \
     htop             `: much better "top" command` \
+    fontforge        `: font editing` \
+    gimp             `: image editing` \
     inkscape         `: SVG editing` \
     jq               `: like grep but for JSON` \
     openssh-server   `: secure shell` \
+    filezilla        `: client FTP` \
+    vlc              `: media player` \
     pcregrep         `: reasonable RE syntax, and can capture groups` \
     pdftk            `: perform various useful operations on PDFs` \
     pwgen            `: random passwords` \
+    terminator       `: terminal of choice` \
     tree             `: for when ls is simply not enough` \
-    ttf-mscorefonts-installer `: for browsing the web` \
+    fdupes           `: for when I feel like cleaning up my hard drive` \
+    gufw             `: firewall` \
+    gparted          `: for managing disks and partitions` \
+    unrar            `: unpack proprietary` \
+    \
+    `: fonts` \
+    ttf-freefont ttf-mscorefonts-installer \
+    \
+    `: Dropbox` \
+    nautilus-dropbox libpango1.0-0 python-gpgme \
     \
     `: Mount remote filesystems` \
     bindfs encfs smbnetfs sshfs \
@@ -45,6 +64,9 @@ sudo apt-get install -y \
 if ! ls /var/cache/apt/apt-file | grep -q .; then
     sudo apt-file update
 fi
+
+# Firewall
+sudo ufw allow ssh
 
 # Wipe out the default Ubuntu ssh client configuration, in particular to
 # turn off its SendEnv settings that send locale variables like LC_PAPER
@@ -63,6 +85,4 @@ fi
 
 # Outlaw Ubuntu's terrible "Sorry the application X has stopped
 # unexpectedly" popups.
-
-sudo apt-get purge -y apport apport-gtk apport-symptoms python3-apport \
-    whoopsie
+sudo apt-get purge -y apport apport-gtk apport-symptoms python3-apport whoopsie

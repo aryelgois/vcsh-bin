@@ -9,19 +9,25 @@ fi
 
 umask 022
 
+#
+# Pre install
+#
+
 # PPAs
 sudo add-apt-repository ppa:fontforge/fontforge -y
 
 # Update
 sudo apt-get update
 
-# Avoid "perl" locale errors and the "locale" error:
-# locale: Cannot set LC_ALL to default locale: No such file or directory
-
+# Fix
+#   Avoid "perl" locale errors and the "locale" error:
+#   locale: Cannot set LC_ALL to default locale: No such file or directory
 sudo locale-gen en_US en_US.UTF-8
 sudo dpkg-reconfigure --frontend=noninteractive locales
 
-# Install happy packages.
+#
+# Install packages
+#
 
 sudo apt-get install -y \
     apache2-utils    `: provides 12 commands, especially "ab"` \
@@ -65,17 +71,21 @@ if ! ls /var/cache/apt/apt-file | grep -q .; then
     sudo apt-file update
 fi
 
+#
+# Configurations
+#
+
 # Firewall
 sudo ufw allow ssh
 
-# Wipe out the default Ubuntu ssh client configuration, in particular to
-# turn off its SendEnv settings that send locale variables like LC_PAPER
-# even to hosts that cannot digest it.
-
+# SSH
+#   Wipe out the default Ubuntu ssh client configuration, in particular to
+#   turn off its SendEnv settings that send locale variables like LC_PAPER
+#   even to hosts that cannot digest it.
 sudo dd if=/dev/null of=/etc/ssh/ssh_config
 
-# Shut down the oneconf service to avoid various error messages.
-
+# Ubuntu One
+#   Shut down the oneconf service to avoid various error messages.
 if [[ -d /usr/share/oneconf ]]; then
     sudo chmod a-x /usr/share/oneconf/oneconf-service
     sudo chmod a-x /usr/share/oneconf/oneconf-query
@@ -83,6 +93,7 @@ if [[ -d /usr/share/oneconf ]]; then
     sudo killall -q oneconf-service || true
 fi
 
-# Outlaw Ubuntu's terrible "Sorry the application X has stopped
-# unexpectedly" popups.
+# Ubuntu
+#   Outlaw Ubuntu's terrible "Sorry the application X has stopped
+#   unexpectedly" popups.
 sudo apt-get purge -y apport apport-gtk apport-symptoms python3-apport whoopsie

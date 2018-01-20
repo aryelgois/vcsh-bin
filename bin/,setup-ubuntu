@@ -1,0 +1,71 @@
+#!/bin/bash
+
+set -e
+
+if [ "$(id -u)" = "0" ]
+then
+    echo 'Error: this script should not be run as root' >&2
+    exit 1
+fi
+
+umask 022
+sudo apt-get update
+
+# Avoid "perl" locale errors and the "locale" error:
+# locale: Cannot set LC_ALL to default locale: No such file or directory
+
+sudo locale-gen en_US en_US.UTF-8
+sudo dpkg-reconfigure --frontend=noninteractive locales
+
+# Install happy packages.
+
+sudo apt-get install -y \
+    apache2-utils    `: provides 12 commands, especially "ab"` \
+    apt-file         `: to find where files come from` \
+    colordiff wdiff  `: for the occasional need to diff outside of git ` \
+    git              `: distributed version control` \
+    html2text        `: when data is available in no better format` \
+    htop             `: much better "top" command` \
+    inkscape         `: SVG editing` \
+    jq               `: like grep but for JSON` \
+    openssh-server   `: secure shell` \
+    pcregrep         `: reasonable RE syntax, and can capture groups` \
+    pdftk            `: perform various useful operations on PDFs` \
+    pwgen            `: random passwords` \
+    tree             `: for when ls is simply not enough` \
+    ttf-mscorefonts-installer `: for browsing the web` \
+    \
+    `: Mount remote filesystems` \
+    bindfs encfs smbnetfs sshfs \
+    \
+    `: Hettinger reminded me how awesome these tools are` \
+    graphviz
+
+# Run "apt-file update" for the first time if necessary.
+
+if ! ls /var/cache/apt/apt-file | grep -q .
+then
+    sudo apt-file update
+fi
+
+# Wipe out the default Ubuntu ssh client configuration, in particular to
+# turn off its SendEnv settings that send locale variables like LC_PAPER
+# even to hosts that cannot digest it.
+
+sudo dd if=/dev/null of=/etc/ssh/ssh_config
+
+# Shut down the oneconf service to avoid various error messages.
+
+if [ -d /usr/share/oneconf ]
+then
+    sudo chmod a-x /usr/share/oneconf/oneconf-service
+    sudo chmod a-x /usr/share/oneconf/oneconf-query
+    sudo chmod a-x /usr/share/oneconf/oneconf-update
+    sudo killall -q oneconf-service || true
+fi
+
+# Outlaw Ubuntu's terrible "Sorry the application X has stopped
+# unexpectedly" popups.
+
+sudo apt-get purge -y apport apport-gtk apport-symptoms python3-apport \
+    whoopsie

@@ -1,0 +1,4 @@
+#!/bin/sh
+# When I plug a headset, the sound gets mute
+
+alsactl --file ~/.config/asound.state restore

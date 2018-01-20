@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Create swapfiles
+#   $1 Path          (/swapfile)
+#   $2 Size          (1G)
+#   #3 Permanent 1|0 (0)
+
+set -e
+
+SWAPFILE=${1:-/swapfile}
+SIZE=${2:-1G}
+PERMANENT=${3:-0}
+
+if [[ ! -e $SWAPFILE ]]; then
+    echo "Creating swapfile..."
+    if hash fallocate 2> /dev/null; then
+        sudo fallocate -l $SIZE "$SWAPFILE"
+    else
+        sudo dd if=/dev/zero of="$SWAPFILE" bs=$SIZE count=4
+    fi
+    sudo chmod 600 "$SWAPFILE"
+    sudo mkswap "$SWAPFILE"
+    ,swapfile-toggle "$SWAPFILE" $PERMANENT
+else
+    >&2 echo "E: File already exists"
+    exit 1
+fi

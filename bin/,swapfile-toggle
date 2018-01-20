@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Toggle swapfiles
+#   $1 Path          (/swapfile)
+#   #2 Permanent 1|0 (0)
+
+set -e
+
+SWAPFILE=${1:-/swapfile}
+PERMANENT=${2:-0}
+
+if [[ -n $(swapon --show=NAME --noheadings | grep -e "$SWAPFILE") ]]; then
+    echo 'Disabling swap file... '
+    sudo swapoff "$SWAPFILE"
+    if [[ $PERMANENT -gt 0 ]]; then
+        sudo sed -i "\:^$SWAPFILE :d" /etc/fstab
+    fi
+else
+    echo "Enabling swap file..."
+    sudo swapon "$SWAPFILE"
+    if [[ $PERMANENT -gt 0 ]]; then
+        echo "$SWAPFILE none swap sw 0 0" | sudo tee -a /etc/fstab
+    fi
+fi

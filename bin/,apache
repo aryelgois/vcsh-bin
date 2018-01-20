@@ -1,0 +1,13 @@
+#!/bin/sh
+# Shortcut to control apache service
+#   $1 command in [start|stop|restart|reload]
+
+case "$1" in
+start|stop|restart|reload)
+    sudo /etc/init.d/apache2 $1
+    ;;
+*)
+    >&2 echo "Usage: $(basename "$0") [start|stop|restart|reload]"
+    exit 1
+    ;;
+esac

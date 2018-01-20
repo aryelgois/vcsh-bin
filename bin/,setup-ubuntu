@@ -1,9 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
-if [ "$(id -u)" = "0" ]
-then
+if [[ $(id -u) -eq 0 ]]; then
     echo 'Error: this script should not be run as root' >&2
     exit 1
 fi
@@ -43,8 +42,7 @@ sudo apt-get install -y \
 
 # Run "apt-file update" for the first time if necessary.
 
-if ! ls /var/cache/apt/apt-file | grep -q .
-then
+if ! ls /var/cache/apt/apt-file | grep -q .; then
     sudo apt-file update
 fi
 
@@ -56,8 +54,7 @@ sudo dd if=/dev/null of=/etc/ssh/ssh_config
 
 # Shut down the oneconf service to avoid various error messages.
 
-if [ -d /usr/share/oneconf ]
-then
+if [[ -d /usr/share/oneconf ]]; then
     sudo chmod a-x /usr/share/oneconf/oneconf-service
     sudo chmod a-x /usr/share/oneconf/oneconf-query
     sudo chmod a-x /usr/share/oneconf/oneconf-update

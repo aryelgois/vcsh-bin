@@ -9,3 +9,7 @@
 !/.gitignore.d/bin
 !/bin
 !/bin/*
+
+# vcsh-php
+/bin/,setup-composer
+/bin/,setup-lamp

@@ -30,7 +30,6 @@ sudo dpkg-reconfigure --frontend=noninteractive locales
 #
 
 sudo apt-get install -y \
-    apache2-utils    `: provides 12 commands, especially "ab"` \
     apt-file         `: to find where files come from` \
     colordiff wdiff  `: for the occasional need to diff outside of git ` \
     fdupes           `: for when I feel like cleaning up my hard drive` \

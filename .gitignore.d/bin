@@ -10,6 +10,10 @@
 !/bin
 !/bin/*
 
+# vcsh-mr
+/bin/,vcsh-init
+/bin/,vcsh-write-gitignore
+
 # vcsh-php
 /bin/,setup-composer
 /bin/,setup-lamp

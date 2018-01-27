@@ -12,6 +12,7 @@
 
 # vcsh-mr
 /bin/,vcsh-init
+/bin/,vcsh-ls
 /bin/,vcsh-write-gitignore
 
 # vcsh-php

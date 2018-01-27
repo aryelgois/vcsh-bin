@@ -17,3 +17,6 @@
 # vcsh-php
 /bin/,setup-composer
 /bin/,setup-lamp
+
+# vcsh-powerline-shell
+/bin/,setup-powerline-shell

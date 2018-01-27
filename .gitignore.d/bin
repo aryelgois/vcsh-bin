@@ -15,6 +15,11 @@
 /bin/,vcsh-ls
 /bin/,vcsh-write-gitignore
 
+# vcsh-git
+/bin/,github-clone
+/bin/,github-clone-all
+/bin/,github-create
+
 # vcsh-php
 /bin/,setup-composer
 /bin/,setup-lamp

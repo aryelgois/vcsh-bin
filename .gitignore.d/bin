@@ -22,6 +22,9 @@
 /bin/git-recommit
 /bin/git-replay
 
+# vcsh-bash
+/bin/,bash-history
+
 # vcsh-php
 /bin/,setup-composer
 /bin/,setup-lamp

@@ -59,7 +59,7 @@ sudo apt-get install -y \
     nautilus-dropbox libpango1.0-0 python-gpgme \
     \
     `: Mount remote filesystems` \
-    bindfs encfs smbnetfs sshfs \
+    bindfs smbnetfs sshfs \
     \
     `: For _nice_ messages` \
     fortune fortunes fortunes-min fortunes-off fortunes-br cowsay \

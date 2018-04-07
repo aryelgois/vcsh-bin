@@ -47,6 +47,7 @@ sudo apt-get install -y \
     pcregrep         `: reasonable RE syntax, and can capture groups` \
     pdftk            `: perform various useful operations on PDFs` \
     pwgen            `: random passwords` \
+    python-pip       `: python package manager` \
     ruby-dev         `: for jekyll` \
     terminator       `: terminal of choice` \
     tree             `: for when ls is simply not enough` \
@@ -67,6 +68,11 @@ sudo apt-get install -y \
     \
     `: Hettinger reminded me how awesome these tools are` \
     graphviz
+
+# Python packages
+
+sudo pip install --upgrade \
+    pip              `: upgrade pip`
 
 # Ruby packages
 

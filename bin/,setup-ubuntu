@@ -47,6 +47,7 @@ sudo apt-get install -y \
     pcregrep         `: reasonable RE syntax, and can capture groups` \
     pdftk            `: perform various useful operations on PDFs` \
     pwgen            `: random passwords` \
+    ruby-dev         `: for jekyll` \
     terminator       `: terminal of choice` \
     tree             `: for when ls is simply not enough` \
     unrar            `: unpack proprietary` \
@@ -66,6 +67,10 @@ sudo apt-get install -y \
     \
     `: Hettinger reminded me how awesome these tools are` \
     graphviz
+
+# Ruby packages
+
+sudo gem install jekyll
 
 # Run "apt-file update" for the first time if necessary.
 

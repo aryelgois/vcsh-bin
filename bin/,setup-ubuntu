@@ -72,7 +72,8 @@ sudo apt-get install -y \
 # Python packages
 
 sudo pip install --upgrade \
-    pip              `: upgrade pip`
+    pip              `: upgrade pip` \
+    youtube_dl       `: download YouTube videos`
 
 # Ruby packages
 

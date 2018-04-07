@@ -23,12 +23,14 @@
 /bin/git-colored
 /bin/git-recommit
 /bin/git-replay
+/bin/gitignore_line
 
 # vcsh-bash
 /bin/,bash-history
 
 # vcsh-php
 /bin/,setup-composer
+/bin/,setup-composer-global
 /bin/,setup-lamp
 
 # vcsh-powerline-shell

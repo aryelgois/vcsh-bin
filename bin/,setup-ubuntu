@@ -46,12 +46,14 @@ sudo apt-get install -y \
     openssh-server   `: secure shell` \
     pcregrep         `: reasonable RE syntax, and can capture groups` \
     pdftk            `: perform various useful operations on PDFs` \
+    playonlinux      `: run windows programs` \
     pwgen            `: random passwords` \
     python-pip       `: python package manager` \
     ruby-dev         `: for jekyll` \
     terminator       `: terminal of choice` \
     tree             `: for when ls is simply not enough` \
     unrar            `: unpack proprietary` \
+    virtualbox       `: virtual machines` \
     vlc              `: media player` \
     \
     `: fonts` \

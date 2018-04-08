@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+pushd . > /dev/null
+
+git clone https://github.com/tj/n ~/git/tj/n
+cd ~/git/tj/n
+
+PREFIX="$HOME/.local" make install
+n stable
+
+npm set init.license 'MIT'
+npm set init.author.name "$(git config github.user || echo "$USER")"
+
+popd > /dev/null

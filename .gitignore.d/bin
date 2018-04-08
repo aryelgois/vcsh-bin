@@ -23,6 +23,7 @@
 /bin/git-colored
 /bin/git-recommit
 /bin/git-replay
+/bin/git-watch
 /bin/gitignore_line
 
 # vcsh-bash

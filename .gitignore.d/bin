@@ -36,3 +36,6 @@
 
 # vcsh-powerline-shell
 /bin/,setup-powerline-shell
+
+# vcsh-blender
+/bin/,setup-blender

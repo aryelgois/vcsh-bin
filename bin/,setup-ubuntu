@@ -55,6 +55,7 @@ sudo apt-get install -y \
     unrar            `: unpack proprietary` \
     virtualbox       `: virtual machines` \
     vlc              `: media player` \
+    xclip            `: let shell scripts get and set the paste buffer` \
     \
     `: fonts` \
     ttf-freefont ttf-mscorefonts-installer \

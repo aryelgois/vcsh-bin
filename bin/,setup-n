@@ -2,8 +2,6 @@
 
 set -e
 
-pushd . > /dev/null
-
 git clone https://github.com/tj/n ~/git/tj/n
 cd ~/git/tj/n
 
@@ -12,5 +10,3 @@ n stable
 
 npm set init.license 'MIT'
 npm set init.author.name "$(git config github.user || echo "$USER")"
-
-popd > /dev/null

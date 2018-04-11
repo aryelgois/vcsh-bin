@@ -41,6 +41,7 @@ sudo apt-get install -y \
     gufw             `: firewall` \
     html2text        `: when data is available in no better format` \
     htop             `: much better "top" command` \
+    httpie           `: painless debugging and interaction with HTTP servers` \
     inkscape         `: SVG editing` \
     jq               `: like grep but for JSON` \
     openssh-server   `: secure shell` \

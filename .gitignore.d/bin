@@ -12,6 +12,7 @@
 !/bin/*
 
 # vcsh-mr
+/bin/,setup-myrepos
 /bin/,vcsh-init
 /bin/,vcsh-ls
 /bin/,vcsh-write-gitignore

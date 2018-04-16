@@ -14,8 +14,6 @@
 # vcsh-mr
 /bin/,setup-myrepos
 /bin/,vcsh-init
-/bin/,vcsh-ls
-/bin/,vcsh-write-gitignore
 
 # vcsh-git
 /bin/,github-clone
